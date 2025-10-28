@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://3bafccnoojsn"]
+
+[ext_resource type="Script" uid="uid://c4vq3yycu0hxr" path="res://clue.gd" id="1_aufqr"]
+[ext_resource type="Texture2D" uid="uid://cotgp78a10cnv" path="res://Images/red-potion.png" id="2_aivg7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0jjsr"]
+size = Vector2(36, 43)
+
+[node name="Veneno" type="Area2D"]
+script = ExtResource("1_aufqr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(564, 297)
+scale = Vector2(1.2173892, 0.98472345)
+texture = ExtResource("2_aivg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(564, 297)
+shape = SubResource("RectangleShape2D_0jjsr")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bceihlo02r8qs"]
+
+[ext_resource type="PackedScene" uid="uid://dlkgyvs3aru85" path="res://Escenas/player.tscn" id="1_v4w7l"]
+[ext_resource type="Texture2D" uid="uid://be332c4kcpv6n" path="res://Images/Cuarto.png" id="2_md74m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m18lo"]
+size = Vector2(600.09485, 20)
+
+[node name="Main" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(590.00006, 343)
+scale = Vector2(1.5930233, 1.5762196)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(17.576603, -22.83945)
+texture = ExtResource("2_md74m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(15.06566, 118.00387)
+shape = SubResource("RectangleShape2D_m18lo")
+
+[node name="Player" parent="." instance=ExtResource("1_v4w7l")]
+position = Vector2(417, 89)

@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3t41sh88cyex"]
+
+[ext_resource type="Texture2D" uid="uid://be332c4kcpv6n" path="res://Images/Cuarto.png" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://csm0wuhdw5eb4" path="res://player.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://3bafccnoojsn" path="res://veneno.tscn" id="3_feb5d"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
+size = Vector2(302.65143, 102.39595)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_feb5d"]
+size = Vector2(155.32074, 83.45813)
+
+[node name="Game" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(605, 317.00003)
+scale = Vector2(1.6652821, 1.8018293)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-16.183674, 4.922362)
+scale = Vector2(0.598476, 0.5785093)
+texture = ExtResource("1_80nbo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-32.42695, 183.7022)
+scale = Vector2(0.60049886, 0.55499154)
+shape = SubResource("WorldBoundaryShape2D_e2o6t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-189.75764, 3.74617)
+shape = SubResource("RectangleShape2D_e2o6t")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(59.449375, -13.8748045)
+shape = SubResource("RectangleShape2D_feb5d")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(36.63043, 45.50929)
+polygon = PackedVector2Array(291.24194, 135.97293, 292.44293, -207.01184, 104.486786, -209.7868, 105.687775, -14.984772, 195.16211, 15.539764)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2(-51.042404, 19.97968)
+polygon = PackedVector2Array(-311.0584, 164.2775, -314.6614, -190.9171, -265.4205, -40.51439, -306.85492, 49.949234)
+
+[node name="Player" parent="." instance=ExtResource("2_e2o6t")]
+position = Vector2(105, 111)
+
+[node name="Veneno" parent="." instance=ExtResource("3_feb5d")]
+position = Vector2(258, -43)
