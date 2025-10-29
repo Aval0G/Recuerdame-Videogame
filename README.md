@@ -8,7 +8,8 @@ Repositorio grupal para el proyecto final de la materia **Desarrollo de Videojue
 
 **Alumnos:**
 - Valdez Gutierrez Aldo Eduardo
-- Se añaden ()
+- Gutierrez Torres Kevin
+- Vega Velasco Ernesto
 
 **Académico:**
 - Ramírez Ortiz Miguel Ángel
