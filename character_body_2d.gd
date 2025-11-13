@@ -7,6 +7,10 @@ extends CharacterBody2D
 # Define la velocidad de movimiento del jugador.
 @export var SPEED: float = 150.0
 
+# Límites de la pantalla (ajustar según tu ventana/nivel)
+# Considera que el CollisionShape está a 128px hacia abajo + 48px de radio
+@export var screen_bounds: Rect2 = Rect2(50, 50, 1058, 422)
+
 # Variable para rastrear con qué objeto podemos interactuar
 var current_interactable = null
 
@@ -34,11 +38,12 @@ func _physics_process(_delta: float) -> void:
 	# 3. Mover al personaje
 	move_and_slide()
 	
+	# 3.5. Aplicar límites de pantalla
+	position.x = clamp(position.x, screen_bounds.position.x, screen_bounds.position.x + screen_bounds.size.x)
+	position.y = clamp(position.y, screen_bounds.position.y, screen_bounds.position.y + screen_bounds.size.y)
+	
 	# 4. Actualizar animaciones
 	update_animation(velocity)
-	
-	# 5. Comprobar interacción
-	check_interaction()
 
 # Esta función actualiza la animación y hacia dónde mira el sprite
 func update_animation(current_velocity: Vector2) -> void:
@@ -69,12 +74,6 @@ func update_animation(current_velocity: Vector2) -> void:
 			# el 'idle' coincida con la última dirección.
 			animated_sprite.animation = "idle"
 
-# Nueva función para manejar la interacción, llamada desde _physics_process
-func check_interaction() -> void:
-	# Usamos el 'Input' global en lugar del 'event'
-	if Input.is_action_just_pressed("interact") and current_interactable:
-		current_interactable.interact()
-
-# La función _input ya no es necesaria para la interacción
+# Función _input vacía (la interacción ahora la manejan los objetos directamente)
 func _input(event):
-	pass # No hacer nada aquí
+	pass

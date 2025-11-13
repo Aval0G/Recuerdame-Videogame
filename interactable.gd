@@ -18,6 +18,7 @@ func _ready():
 func _on_body_entered(body):
 	# Comprobamos si el cuerpo que entró es el jugador
 	if body.is_in_group("player"):
+		print("Jugador entró en rango de: ", name)
 		# Guardamos la referencia al jugador y le decimos que puede interactuar con nosotros
 		player_in_range = body
 		body.current_interactable = self
@@ -26,6 +27,7 @@ func _on_body_entered(body):
 
 func _on_body_exited(body):
 	if body.is_in_group("player"):
+		print("Jugador salió del rango de: ", name)
 		# Limpiamos las referencias cuando el jugador sale
 		if body.current_interactable == self:
 			body.current_interactable = null

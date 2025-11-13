@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bflash_potion_001"]
+
+[ext_resource type="Script" path="res://pocion_flashback.gd" id="1_pocion"]
+[ext_resource type="Texture2D" uid="uid://cotgp78a10cnv" path="res://Images/red-potion.png" id="2_potion_img"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_potion"]
+size = Vector2(50, 60)
+
+[node name="PocionFlashback" type="Area2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_pocion")
+item_name = "Pócima Roja Misteriosa"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_potion_img")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_potion")
+
+[node name="PromptLabel" type="Label" parent="."]
+offset_left = -60.0
+offset_top = -50.0
+offset_right = 60.0
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "[E] Examinar"
+horizontal_alignment = 1
+vertical_alignment = 1

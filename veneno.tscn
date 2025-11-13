@@ -8,12 +8,12 @@ size = Vector2(36, 43)
 
 [node name="Veneno" type="Area2D"]
 script = ExtResource("1_aufqr")
+item_name = "Pócima Roja Misteriosa"
+triggers_flashback = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(564, 297)
 scale = Vector2(1.2173892, 0.98472345)
 texture = ExtResource("2_aivg7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(564, 297)
 shape = SubResource("RectangleShape2D_0jjsr")

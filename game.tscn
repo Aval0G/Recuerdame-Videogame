@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://be332c4kcpv6n" path="res://Images/Cuarto.png" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://csm0wuhdw5eb4" path="res://player.tscn" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://3bafccnoojsn" path="res://veneno.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bflash_potion_001" path="res://pocion_flashback.tscn" id="3_pocion"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
@@ -45,7 +45,7 @@ position = Vector2(-51.042404, 19.97968)
 polygon = PackedVector2Array(-311.0584, 164.2775, -314.6614, -190.9171, -265.4205, -40.51439, -306.85492, 49.949234)
 
 [node name="Player" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(105, 111)
+position = Vector2(400, 400)
 
-[node name="Veneno" parent="." instance=ExtResource("3_feb5d")]
-position = Vector2(258, -43)
+[node name="PocionFlashback" parent="." instance=ExtResource("3_pocion")]
+position = Vector2(600, 300)
