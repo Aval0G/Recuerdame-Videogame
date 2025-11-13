@@ -49,12 +49,10 @@ func interact():
 
 # Función para mostrar el flashback
 func show_flashback():
-	print("Cargando escena de flashback...")
 	# Cargar la escena del flashback
-	var flashback_scene = preload("res://flashback_simple.tscn")
+	var flashback_scene = preload("res://flashback.tscn")
 	var flashback_instance = flashback_scene.instantiate()
 	
-	print("Añadiendo flashback a la escena...")
 	# Añadirlo a la escena actual
 	get_tree().root.add_child(flashback_instance)
 	
@@ -65,12 +63,11 @@ func show_flashback():
 		"[center][color=#8B0000]\"¿Quién... quién soy yo?\"[/color][/center]",
 		"[center][shake rate=5 level=10]Recuerdo... un nombre... casi puedo escucharlo...[/shake][/center]",
 		"[center][color=#CD853F]Una figura familiar... alguien importante...[/color][/center]",
-		"[center][i]Pero todo se desvanece como arena entre los dedos...[/i][/center]",
+		"[center][fade start=0 length=14][i]Pero todo se desvanece como arena entre los dedos...[/i][/fade][/center]",
 		"[center][wave amp=30 freq=3][color=#4B0082]Esta pócima... ¿qué significa? ¿Por qué me resulta tan familiar?[/color][/wave][/center]",
 		"[center][tornado radius=5 freq=2]Los fragmentos de mi pasado... siguen ocultos en la oscuridad.[/tornado][/center]"
 	]
 	
-	print("Iniciando flashback con textos...")
 	# Iniciar el flashback
 	flashback_instance.start_flashback(flashback_texts)
 	

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cotgp78a10cnv" path="res://Images/red-potion.png" id="2_potion_img"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_potion"]
-size = Vector2(50, 60)
+size = Vector2(80, 100)
 
 [node name="PocionFlashback" type="Area2D"]
 collision_layer = 2
@@ -13,6 +13,7 @@ script = ExtResource("1_pocion")
 item_name = "Pócima Roja Misteriosa"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_potion_img")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

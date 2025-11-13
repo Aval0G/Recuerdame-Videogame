@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://be332c4kcpv6n" path="res://Images/Cuarto.png" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://csm0wuhdw5eb4" path="res://player.tscn" id="2_e2o6t"]
-[ext_resource type="PackedScene" uid="uid://bflash_potion_001" path="res://pocion_flashback.tscn" id="3_pocion"]
+[ext_resource type="PackedScene" path="res://pocion_flashback.tscn" id="3_pocion"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
@@ -48,4 +48,4 @@ polygon = PackedVector2Array(-311.0584, 164.2775, -314.6614, -190.9171, -265.420
 position = Vector2(400, 400)
 
 [node name="PocionFlashback" parent="." instance=ExtResource("3_pocion")]
-position = Vector2(600, 300)
+position = Vector2(631, 262)
