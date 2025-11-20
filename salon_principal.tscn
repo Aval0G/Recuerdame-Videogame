@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3vuvcdn55hon"]
+
+[ext_resource type="Texture2D" uid="uid://b1ryjoj3a4lb5" path="res://Images/Salon principal.png" id="1_salon"]
+[ext_resource type="PackedScene" uid="uid://csm0wuhdw5eb4" path="res://player.tscn" id="2_player"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pared_izq"]
+size = Vector2(2, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pared_der"]
+size = Vector2(6, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pared_arriba"]
+size = Vector2(1158, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pared_abajo"]
+size = Vector2(1158, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chimenea"]
+size = Vector2(221, 399)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mesa"]
+size = Vector2(294, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_librero"]
+size = Vector2(79, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ventana"]
+size = Vector2(352, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mueble_der"]
+size = Vector2(76.5, 182)
+
+[node name="SalonPrincipal" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(579, 324)
+scale = Vector2(1.924, 1.976)
+texture = ExtResource("1_salon")
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(985.99994, 205.00003)
+scale = Vector2(0.7, 0.7)
+
+[node name="Colisiones" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="ParedIzquierda" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(1, 324)
+shape = SubResource("RectangleShape2D_pared_izq")
+
+[node name="ParedDerecha" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(1155, 324)
+shape = SubResource("RectangleShape2D_pared_der")
+
+[node name="ParedArriba" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(579, 25)
+shape = SubResource("RectangleShape2D_pared_arriba")
+
+[node name="ParedAbajo" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(579, 623)
+shape = SubResource("RectangleShape2D_pared_abajo")
+
+[node name="Chimenea" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(189.5, 251.5)
+shape = SubResource("RectangleShape2D_chimenea")
+
+[node name="Mesa" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(627, 420)
+shape = SubResource("RectangleShape2D_mesa")
+
+[node name="Librero" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(390.5, 284.5)
+shape = SubResource("RectangleShape2D_librero")
+
+[node name="Ventana" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(683, 153)
+shape = SubResource("RectangleShape2D_ventana")
+
+[node name="MuebleDerecha" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(1086, 460)
+shape = SubResource("RectangleShape2D_mueble_der")

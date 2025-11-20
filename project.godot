@@ -17,6 +17,8 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 [autoload]
 
 inventory="*res://inventory.gd"
+GameState="*res://game_state.gd"
+SceneTransition="*res://transition.tscn"
 
 [display]
 

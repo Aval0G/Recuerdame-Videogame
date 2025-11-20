@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3t41sh88cyex"]
+[gd_scene load_steps=11 format=3 uid="uid://c3t41sh88cyex"]
 
 [ext_resource type="Texture2D" uid="uid://be332c4kcpv6n" path="res://Images/Cuarto.png" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://csm0wuhdw5eb4" path="res://player.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" path="res://pocion_flashback.tscn" id="3_pocion"]
+[ext_resource type="PackedScene" uid="uid://ciwcclbfwodjb" path="res://puerta.tscn" id="4_puerta"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e2o6t"]
 
@@ -10,7 +11,16 @@
 size = Vector2(302.65143, 102.39595)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feb5d"]
-size = Vector2(155.32074, 83.45813)
+size = Vector2(155.32074, 37.84413)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pared_izq"]
+size = Vector2(50, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pared_der"]
+size = Vector2(50, 648)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pared_arriba"]
+size = Vector2(1158, 50)
 
 [node name="Game" type="Node2D"]
 
@@ -33,7 +43,7 @@ position = Vector2(-189.75764, 3.74617)
 shape = SubResource("RectangleShape2D_e2o6t")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(59.449375, -13.8748045)
+position = Vector2(59.44937, -36.681824)
 shape = SubResource("RectangleShape2D_feb5d")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
@@ -49,3 +59,21 @@ position = Vector2(134, 422)
 
 [node name="PocionFlashback" parent="." instance=ExtResource("3_pocion")]
 position = Vector2(631, 262)
+
+[node name="Colisiones" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="ParedIzquierda" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(25, 324)
+shape = SubResource("RectangleShape2D_pared_izq")
+
+[node name="ParedDerecha" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(1133, 324)
+shape = SubResource("RectangleShape2D_pared_der")
+
+[node name="ParedArriba" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(579, 25)
+shape = SubResource("RectangleShape2D_pared_arriba")
+
+[node name="Puerta" parent="." instance=ExtResource("4_puerta")]
+position = Vector2(967, 377)

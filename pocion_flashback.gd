@@ -107,6 +107,9 @@ func _on_flashback_finished(flashback_instance):
 	print("Flashback completado, limpiando...")
 	flashback_instance.queue_free()
 	
+	# Marcar el flashback como visto en el estado global
+	GameState.marcar_flashback_visto()
+	
 	# Si el jugador sigue en rango, mostrar el prompt de nuevo
 	if player_in_range and prompt_label:
 		prompt_label.text = "[E] Ya examinado"
