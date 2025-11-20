@@ -45,7 +45,7 @@ position = Vector2(-51.042404, 19.97968)
 polygon = PackedVector2Array(-311.0584, 164.2775, -314.6614, -190.9171, -265.4205, -40.51439, -306.85492, 49.949234)
 
 [node name="Player" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(400, 400)
+position = Vector2(134, 422)
 
 [node name="PocionFlashback" parent="." instance=ExtResource("3_pocion")]
 position = Vector2(631, 262)
