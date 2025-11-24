@@ -1,7 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3vuvcdn55hon"]
+[gd_scene load_steps=17 format=3 uid="uid://d3vuvcdn55hon"]
 
-[ext_resource type="Texture2D" uid="uid://b1ryjoj3a4lb5" path="res://Images/Salon principal.png" id="1_salon"]
+[ext_resource type="Texture2D" uid="uid://dumabosgpyvrn" path="res://Images/Salon V-Final.jpg" id="1_t5xng"]
 [ext_resource type="PackedScene" uid="uid://csm0wuhdw5eb4" path="res://player.tscn" id="2_player"]
+[ext_resource type="Script" uid="uid://dfscgdgkpr28b" path="res://arribapuerta.gd" id="3_dklts"]
+[ext_resource type="Script" uid="uid://xeei1adwqs3k" path="res://paredarriba.gd" id="4_85wjc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dklts"]
+size = Vector2(112.5, 94.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7rwls"]
+size = Vector2(299.25, 105)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pared_izq"]
 size = Vector2(2, 648)
@@ -16,13 +24,13 @@ size = Vector2(1158, 50)
 size = Vector2(1158, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chimenea"]
-size = Vector2(221, 399)
+size = Vector2(354, 399)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mesa"]
 size = Vector2(294, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_librero"]
-size = Vector2(79, 99)
+size = Vector2(201, 96)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ventana"]
 size = Vector2(352, 84)
@@ -30,13 +38,16 @@ size = Vector2(352, 84)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mueble_der"]
 size = Vector2(76.5, 182)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85wjc"]
+size = Vector2(70, 66)
+
 [node name="SalonPrincipal" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(579, 324)
-scale = Vector2(1.924, 1.976)
-texture = ExtResource("1_salon")
+position = Vector2(583.6879, 328.468)
+scale = Vector2(0.47783396, 0.563311)
+texture = ExtResource("1_t5xng")
 
 [node name="Player" parent="." instance=ExtResource("2_player")]
 position = Vector2(985.99994, 205.00003)
@@ -44,6 +55,14 @@ scale = Vector2(0.7, 0.7)
 
 [node name="Colisiones" type="StaticBody2D" parent="."]
 collision_mask = 0
+
+[node name="ParedPuerta" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(1093.75, 201.75)
+shape = SubResource("RectangleShape2D_dklts")
+
+[node name="PuertaArriba" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(1006.625, 101)
+shape = SubResource("RectangleShape2D_7rwls")
 
 [node name="ParedIzquierda" type="CollisionShape2D" parent="Colisiones"]
 position = Vector2(1, 324)
@@ -56,21 +75,23 @@ shape = SubResource("RectangleShape2D_pared_der")
 [node name="ParedArriba" type="CollisionShape2D" parent="Colisiones"]
 position = Vector2(579, 25)
 shape = SubResource("RectangleShape2D_pared_arriba")
+script = ExtResource("3_dklts")
 
 [node name="ParedAbajo" type="CollisionShape2D" parent="Colisiones"]
 position = Vector2(579, 623)
 shape = SubResource("RectangleShape2D_pared_abajo")
 
 [node name="Chimenea" type="CollisionShape2D" parent="Colisiones"]
-position = Vector2(189.5, 251.5)
+position = Vector2(182, 251.5)
 shape = SubResource("RectangleShape2D_chimenea")
+script = ExtResource("4_85wjc")
 
 [node name="Mesa" type="CollisionShape2D" parent="Colisiones"]
 position = Vector2(627, 420)
 shape = SubResource("RectangleShape2D_mesa")
 
 [node name="Librero" type="CollisionShape2D" parent="Colisiones"]
-position = Vector2(390.5, 284.5)
+position = Vector2(404.5, 210)
 shape = SubResource("RectangleShape2D_librero")
 
 [node name="Ventana" type="CollisionShape2D" parent="Colisiones"]
@@ -80,3 +101,7 @@ shape = SubResource("RectangleShape2D_ventana")
 [node name="MuebleDerecha" type="CollisionShape2D" parent="Colisiones"]
 position = Vector2(1086, 460)
 shape = SubResource("RectangleShape2D_mueble_der")
+
+[node name="ParedPuerta2" type="CollisionShape2D" parent="Colisiones"]
+position = Vector2(892, 187)
+shape = SubResource("RectangleShape2D_85wjc")

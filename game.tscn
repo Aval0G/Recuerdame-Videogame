@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c3t41sh88cyex"]
 
-[ext_resource type="Texture2D" uid="uid://be332c4kcpv6n" path="res://Images/Cuarto.png" id="1_80nbo"]
+[ext_resource type="Texture2D" uid="uid://c0rqld46ae7uu" path="res://Images/Cuarto V-Final.jpg" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://csm0wuhdw5eb4" path="res://player.tscn" id="2_e2o6t"]
 [ext_resource type="PackedScene" path="res://pocion_flashback.tscn" id="3_pocion"]
 [ext_resource type="PackedScene" uid="uid://ciwcclbfwodjb" path="res://puerta.tscn" id="4_puerta"]
@@ -29,9 +29,9 @@ position = Vector2(605, 317.00003)
 scale = Vector2(1.6652821, 1.8018293)
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-16.183674, 4.922362)
-scale = Vector2(0.598476, 0.5785093)
-texture = ExtResource("1_80nbo")
+position = Vector2(-14.584442, 4.2168226)
+scale = Vector2(0.15097703, 0.14881952)
+texture = ExtResource("1_fc0e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-32.42695, 183.7022)
