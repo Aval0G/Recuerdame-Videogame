@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b1ryjoj3a4lb5" path="res://Images/Salon principal.png" id="1_salon"]
 [ext_resource type="PackedScene" uid="uid://csm0wuhdw5eb4" path="res://player.tscn" id="2_player"]
 [ext_resource type="PackedScene" uid="uid://bg65fbl4cumur" path="res://libro_misterioso.tscn" id="3_libro"]
+[ext_resource type="PackedScene" uid="uid://bcarta001" path="res://carta_misteriosa.tscn" id="4_carta"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pared_izq"]
 size = Vector2(2, 648)
@@ -84,3 +85,6 @@ shape = SubResource("RectangleShape2D_mueble_der")
 
 [node name="LibroMisterioso" parent="." instance=ExtResource("3_libro")]
 position = Vector2(571, 378)
+
+[node name="CartaMisteriosa" parent="." instance=ExtResource("4_carta")]
+position = Vector2(450, 500)

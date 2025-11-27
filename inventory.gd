@@ -1,48 +1,88 @@
-# ui.gd
-# Asigna este script a un nodo CanvasLayer en tu escena principal.
-# Este CanvasLayer debe contener los nodos para mostrar el inventario (ej. un VBoxContainer con Labels o un ItemList)
-extends CanvasLayer
+# inventory.gd
+# Sistema de inventario global (Autoload)
+extends Node
 
-# Asigna este nodo desde el editor.
-# Podría ser un ItemList o un VBoxContainer.
-@onready var inventory_display = $MarginContainer/InventoryList 
+# Señales
+signal inventory_updated(items: Array)
+signal item_added(item_name: String)
+signal item_removed(item_name: String)
+
+# Variables
+var items: Array[Dictionary] = []
+var max_slots: int = 12
+
+# Estructura de un item:
+# {
+#   "name": String,
+#   "description": String,
+#   "icon": Texture2D,
+#   "quantity": int
+# }
 
 func _ready():
-	pass	
-	# Conectamos la señal del inventario a nuestra función de actualización
-	# Inventory.inventory_updated.connect(_on_inventory_updated)
-	# Mantenemos la UI del inventario oculta al inicio
-	# inventory_display.get_parent().hide()
+	print("Sistema de inventario inicializado")
+
+# Agregar un item al inventario
+func add_item(item_name: String, description: String = "", icon: Texture2D = null, quantity: int = 1) -> bool:
+	# Verificar si el item ya existe
+	for item in items:
+		if item["name"] == item_name:
+			item["quantity"] += quantity
+			print("Item actualizado: ", item_name, " x", item["quantity"])
+			inventory_updated.emit(items)
+			item_added.emit(item_name)
+			return true
 	
-	# Ejemplo de cómo conectar los prompts de interacción
-	# (Esto requiere que todos los 'interactable' emitan la señal)
-	# get_tree().call_group("interactables", "show_interaction_prompt", _on_show_prompt)
-	# get_tree().call_group("interactables", "hide_interaction_prompt", _on_hide_prompt)
+	# Verificar si hay espacio
+	if items.size() >= max_slots:
+		print("Inventario lleno!")
+		return false
+	
+	# Agregar nuevo item
+	var new_item = {
+		"name": item_name,
+		"description": description,
+		"icon": icon,
+		"quantity": quantity
+	}
+	items.append(new_item)
+	print("Item agregado: ", item_name)
+	inventory_updated.emit(items)
+	item_added.emit(item_name)
+	return true
 
+# Remover un item del inventario
+func remove_item(item_name: String, quantity: int = 1) -> bool:
+	for i in range(items.size()):
+		if items[i]["name"] == item_name:
+			items[i]["quantity"] -= quantity
+			if items[i]["quantity"] <= 0:
+				items.remove_at(i)
+			inventory_updated.emit(items)
+			item_removed.emit(item_name)
+			return true
+	return false
 
-func _input(event):
-	pass
-	# Comprobar si se presiona la tecla de inventario ('I' según tu GDD)
-	# Configura "toggle_inventory" en el Mapa de Entrada
-	# if event.is_action_just_pressed("toggle_inventory"):
-	# 	var inv_container = inventory_display.get_parent()
-	# 	inv_container.visible = not inv_container.visible
+# Verificar si tiene un item
+func has_item(item_name: String) -> bool:
+	for item in items:
+		if item["name"] == item_name:
+			return true
+	return false
 
-# Función que se llama cuando el inventario (Autoload) emite la señal
-func _on_inventory_updated(new_items: Array):
-	# Limpiamos la lista actual
-	# inventory_display.clear()
-	pass
-	# Volvemos a llenar la lista con los nuevos objetos
-	# for item in new_items:
-	# 	inventory_display.add_item(item)
+# Obtener cantidad de un item
+func get_item_count(item_name: String) -> int:
+	for item in items:
+		if item["name"] == item_name:
+			return item["quantity"]
+	return 0
 
-# --- Funciones (opcionales) para mostrar el prompt "Presiona E" ---
-# @onready var interaction_prompt = $InteractionPrompt # Un nodo Label
+# Obtener todos los items
+func get_items() -> Array[Dictionary]:
+	return items
 
-# func _on_show_prompt(message):
-# 	interaction_prompt.text = message
-# 	interaction_prompt.show()
+# Limpiar inventario
+func clear():
+	items.clear()
+	inventory_updated.emit(items)
 
-# func _on_hide_prompt():
-# 	interaction_prompt.hide()

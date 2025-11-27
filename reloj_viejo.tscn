@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://breloj001"]
+
+[ext_resource type="Script" path="res://collectible.gd" id="1_reloj"]
+[ext_resource type="Texture2D" uid="uid://bw8qqvj6rlvq4" path="res://Images/red-potion.png" id="2_reloj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_reloj"]
+radius = 20.0
+
+[node name="RelojViejo" type="Area2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_reloj")
+item_name = "Reloj Detenido"
+item_description = "Un viejo reloj de bolsillo. Las agujas están detenidas en las 3:47..."
+auto_collect = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.8, 0.7, 0.4, 1)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_reloj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_reloj")
+
+[node name="PromptLabel" type="Label" parent="."]
+offset_left = -50.0
+offset_top = -60.0
+offset_right = 50.0
+offset_bottom = -30.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+text = "[E] Recoger"
+horizontal_alignment = 1
+vertical_alignment = 1
