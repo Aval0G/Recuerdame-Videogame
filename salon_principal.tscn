@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3vuvcdn55hon"]
+[gd_scene load_steps=13 format=3 uid="uid://d3vuvcdn55hon"]
 
 [ext_resource type="Texture2D" uid="uid://b1ryjoj3a4lb5" path="res://Images/Salon principal.png" id="1_salon"]
 [ext_resource type="PackedScene" uid="uid://csm0wuhdw5eb4" path="res://player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://bg65fbl4cumur" path="res://libro_misterioso.tscn" id="3_libro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pared_izq"]
 size = Vector2(2, 648)
@@ -78,5 +79,8 @@ position = Vector2(683, 153)
 shape = SubResource("RectangleShape2D_ventana")
 
 [node name="MuebleDerecha" type="CollisionShape2D" parent="Colisiones"]
-position = Vector2(1086, 460)
+position = Vector2(1000, 260)
 shape = SubResource("RectangleShape2D_mueble_der")
+
+[node name="LibroMisterioso" parent="." instance=ExtResource("3_libro")]
+position = Vector2(571, 378)
